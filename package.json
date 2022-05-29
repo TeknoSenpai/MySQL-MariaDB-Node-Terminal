@@ -1,0 +1,27 @@
+{
+  "name": "mysql-mariadb-node-terminal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "terminal": "node index.js",
+    "debug": "node index.js -debug true",
+  },
+  "keywords": [
+    "mysql",
+    "mariadb",
+    "remote-conncetion",
+    "databases",
+    "database",
+    "sql"
+  ],
+  "author": "TeknoSenpai (https://github.com/TeknoSenpai)",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/mysql": "^2.15.21",
+    "mysql": "^2.18.1"
+  },
+  "dependencies": {
+    "center-align": "^1.0.1"
+  }
+}
