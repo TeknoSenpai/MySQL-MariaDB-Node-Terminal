@@ -86,19 +86,21 @@ In debug mode, the console will log the raw data recived from the database, alon
     <li>
        Example <code>config.json</code> file:
        <br>
-       ```json
-       {
-       "data": {
-       "silent_debug": true,
-       "no_color": false
-       },
-       "database_connection": {
-       "host": "localhost",
-       "user": "tekno",
-       "password": "tekno",
-       "database": "mysql"
-       }
-       }
-       ```
+       <pre>
+       <code>
+{
+   "data":{
+      "silent_debug":true,
+      "no_color":false
+   },
+   "database_connection":{
+      "host":"localhost",
+      "user":"tekno",
+      "password":"tekno",
+      "database":"mysql"
+   }
+}
+       </code>
+       </pre>
     </li>
 </ol>
