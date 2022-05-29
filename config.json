@@ -1,0 +1,12 @@
+{
+  "data": {
+    "silent_debug": true,
+    "no_color": false
+  },
+  "database_connection": {
+    "host": "142.132.254.27",
+    "user": "tekno",
+    "password": "samutiamo",
+    "database": "pippo"
+  }
+}
