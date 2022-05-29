@@ -80,3 +80,25 @@ In debug mode, the console will log the raw data recived from the database, alon
       </ul>
    </li>
 </ol>
+
+<center><h3>Useful Things</h3></center>
+<ol>
+    <li>
+       Example <code>config.json</code> file:
+       <br>
+```json
+{
+  "data": {
+    "silent_debug": true,
+    "no_color": false
+  },
+  "database_connection": {
+    "host": "142.132.254.27",
+    "user": "tekno",
+    "password": "samutiamo",
+    "database": "pippo"
+  }
+}
+```
+    </li>
+</ol>
