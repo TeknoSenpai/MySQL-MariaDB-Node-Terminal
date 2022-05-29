@@ -54,7 +54,7 @@ function query() {
                     case process.env.MYSQL_NODE_DEBUG === "true":
                         console.log(e ? RED + e : RED + 'NO ERROR')
                         break
-                    case typeof e === MysqlError:
+                    case e instanceof MysqlError:
                         console.log(RED + 'Error' + e.sqlMessage);
                         break
                     case typeof a === undefined || null:
