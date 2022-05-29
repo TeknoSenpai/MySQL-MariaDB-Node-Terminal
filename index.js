@@ -10,8 +10,6 @@
 
 require('./src/interfaces/config.js');
 const {init} = require('./src/fnc/init.js')
-const mysql = require('mysql');
-const {MysqlError} = require('mysql');
 const center = require('center-align');
 const readline = require('readline').createInterface({
     input: process.stdin,
@@ -52,9 +50,9 @@ function query() {
             connection.query(q.trim(), (e, a) => {
                 switch(true) {
                     case process.env.MYSQL_NODE_DEBUG === "true":
-                        console.log(e ? RED + e : RED + 'NO ERROR')
+                        console.log(e ? RED + e : RED + 'NO ERROR' + RESET)
                         break
-                    case e instanceof MysqlError:
+                    case e.sqlMessage:
                         console.log(RED + 'Error' + e.sqlMessage);
                         break
                     case typeof a === undefined || null:
