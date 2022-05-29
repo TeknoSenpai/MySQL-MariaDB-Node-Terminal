@@ -15,6 +15,10 @@
     "database",
     "sql"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TeknoSenpai/MySQL-MariaDB-Node-Terminal"
+  },
   "author": "TeknoSenpai (https://github.com/TeknoSenpai)",
   "license": "ISC",
   "devDependencies": {
