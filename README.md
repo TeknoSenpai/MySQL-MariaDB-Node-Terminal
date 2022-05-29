@@ -86,7 +86,7 @@ In debug mode, the console will log the raw data recived from the database, alon
     <li>
        Example <code>config.json</code> file:
        <br>
-       <pre>
+       <pre >
        <code>
 {
    "data":{
