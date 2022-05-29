@@ -13,7 +13,9 @@ const {RED, RESET} = require("../colors");
 const mysql = require("mysql");
 const connection = mysql.createConnection(config.database_connection)
 
-connection.connect();
+connection.connect((err) => {
+    if(err) console.log(RED + 'Error! ' + err.sqlMessage + '\nError Code: ' + err.code) && process.exit(0)
+});
 
 function init() {
     switch(true) {
