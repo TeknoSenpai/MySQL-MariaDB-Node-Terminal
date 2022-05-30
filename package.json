@@ -1,31 +1,54 @@
 {
   "name": "mysql-mariadb-node-terminal",
   "version": "1.0.0",
-  "description": "",
+  "description": "A clean-looking, secure, MySQL/MariaDB remote connection terminal made in NodeJS",
   "main": "index.js",
+  "dependencies": {
+    "align-text": "^1.0.2",
+    "bignumber.js": "^9.0.0",
+    "center-align": "^1.0.1",
+    "core-util-is": "^1.0.3",
+    "inherits": "^2.0.4",
+    "isarray": "^1.0.0",
+    "kind-of": "^5.1.0",
+    "longest": "^2.0.1",
+    "mysql": "^2.18.1",
+    "process-nextick-args": "^2.0.1",
+    "readable-stream": "^2.3.7",
+    "repeat-string": "^1.6.1",
+    "safe-buffer": "^5.1.2",
+    "sqlstring": "^2.3.1",
+    "string_decoder": "^1.1.1",
+    "util-deprecate": "^1.0.2"
+  },
+  "devDependencies": {
+    "@types/mysql": "^2.15.21"
+  },
   "scripts": {
     "terminal": "node index.js",
     "debug": "node index.js -debug true"
   },
-  "keywords": [
-    "mysql",
-    "mariadb",
-    "remote-conncetion",
-    "databases",
-    "database",
-    "sql"
-  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/TeknoSenpai/MySQL-MariaDB-Node-Terminal"
+    "url": "git+https://github.com/TeknoSenpai/MySQL-MariaDB-Node-Terminal.git"
   },
+  "keywords": [
+    "nodejs",
+    "mysql",
+    "cli",
+    "node",
+    "database",
+    "mariadb",
+    "mysql-server",
+    "mysql-database",
+    "database-management",
+    "node-js",
+    "mariadb-database"
+  ],
   "author": "TeknoSenpai (https://github.com/TeknoSenpai)",
-  "license": "ISC",
-  "devDependencies": {
-    "@types/mysql": "^2.15.21",
-    "mysql": "^2.18.1"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TeknoSenpai/MySQL-MariaDB-Node-Terminal/issues"
   },
-  "dependencies": {
-    "center-align": "^1.0.1"
-  }
+  "homepage": "https://github.com/TeknoSenpai/MySQL-MariaDB-Node-Terminal#readme"
 }
