@@ -8,6 +8,8 @@
     Discord: TeknoSenpai#0957
 */
 
+process.env.MYSQL_NODE_DEBUG = "undefined";
+
 require('./src/interfaces/config.js');
 const {init} = require('./src/fnc/init.js')
 const center = require('center-align');
@@ -16,6 +18,7 @@ const readline = require('readline').createInterface({
     output: process.stdout,
 });
 const {checkSpecialQueries} = require('./src/checkSpecialQueries.js');
+const {queryRes} = require('./src/fnc/queryRes')
 
 let {RED, YELLOW, BLUE, CYAN, RESET} = require('./src/colors.js')
 
@@ -43,47 +46,13 @@ const connection = init();
 })()
 
 function query() {
-    readline.question(`${BLUE}MySQL/MariaDB Node Terminal ${RESET}${CYAN}[(${config.database_connection.database ? config.database_connection.database : 'none'})] ${RESET}${BLUE}=> `, q => {
-        checkSpecialQueries(q) ? connection.resume() : process.exit(0);
+    readline.question(`${BLUE}MySQL/MariaDB Node Terminal ${RESET}${CYAN}[(${config.database_connection.database ? config.database_connection.database : 'none'})] ${RESET}${BLUE}=> ${RESET}`, q => {
+        // noinspection BadExpressionStatementJS
+        checkSpecialQueries(q, connection)? '' : process.exit(1);
 
         if(q) {
-            connection.query(q.trim(), (e, a) => {
-                switch(true) {
-                    case process.env.MYSQL_NODE_DEBUG === "true":
-                        console.log(e ? RED + e : RED + 'NO ERROR' + RESET)
-                        break
-                    case e.sqlMessage:
-                        console.log(RED + 'Error' + e.sqlMessage);
-                        break
-                    case typeof a === undefined || null:
-                        console.log(YELLOW + 'Database returned no data!')
-                        break
-                    case (typeof a === undefined || null) && (typeof e === undefined || null):
-                        console.log(RED + 'Unknown Error: Database did not return any data nor error!')
-                        return query()
-                }
-
-                //----//
-
-                switch(true) {
-                    case process.env.MYSQL_NODE_DEBUG === "true":
-                        console.log(a)
-                        break
-                    case Array.isArray(a):
-                        console.table(a)
-                        break
-                    case a instanceof Array:
-                        console.log(BLUE + 'Query OK.')
-                        console.table(BLUE + a + BLUE)
-                        break
-                    default:
-                        console.log(BLUE + 'Query OK.')
-                        console.log(BLUE + 'Rows affected: ' + a.affectedRows ? a.affectedRows : 0 + '\n Response: ' + a.sqlMessage ? a.sqlMessage : 'N/A')
-                        break
-                }
-
-                //----//
-
+            connection.query(q.trim(), (err, res) => {
+                queryRes(err, res);
                 query();
             })
         } else {

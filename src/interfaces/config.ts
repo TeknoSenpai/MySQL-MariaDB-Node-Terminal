@@ -35,7 +35,7 @@ export default interface Config extends ConnectionConfig {
 }
 
 import * as config from "../../config.json";
-import {RED} from "../colors";
+import {RED, RESET} from "../colors";
 
 switch (true) {
     case typeof config === undefined:
@@ -44,7 +44,7 @@ switch (true) {
     case typeof config.database_connection.user === undefined || null:
     case typeof config.database_connection.password === undefined || null:
     case typeof config.database_connection.database === undefined || null:
-        console.log(RED + 'Please provide a valid database config!')
+        console.log(RED + 'Please provide a valid database config!' + RESET)
         process.exit(0)
         break
 }

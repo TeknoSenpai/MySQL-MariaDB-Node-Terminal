@@ -18,7 +18,7 @@ NodeJS MySQL/MariaDB Terminal is a remote terminal for MySQL/MariaDB databases, 
 
 To run the terminal, you can use the `terminal` script, with the `npm run terminal` command.  
 
-#### Single-Query Mode _(Not Released Yet)_
+#### Single-Query Mode
 
 The terminal also supports a "single-query" usage, through CLI Arguments.  
 Simply run the `index.js` file with the `node index.js -q (query)`  
@@ -48,7 +48,7 @@ In debug mode, the console will log the raw data recived from the database, alon
 ```json
 {
    "data":{
-      "silent_debug":true,
+      "silent_debug":false,
       "no_color":false
    },
    "database_connection":{

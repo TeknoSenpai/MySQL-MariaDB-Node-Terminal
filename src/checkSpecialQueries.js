@@ -8,19 +8,22 @@
     Discord: TeknoSenpai#0957
 */
 
-const {BLUE} = require('./colors.js')
+const {BLUE, RESET} = require('./colors.js')
+const {cEnd} = require('./fnc/end')
 
 module.exports = {
-    checkSpecialQueries(query) {
+    checkSpecialQueries(query, connection) {
         switch(query) {
             case '\\q':
-                console.log(BLUE + 'Bye.')
-                return false
+                console.log(BLUE + 'Bye.' + RESET)
+                cEnd(connection, true, false);
+                return false;
             case query.toLowerCase().replace(';', '') === 'exit':
-                console.log(BLUE + 'Bye.')
+                console.log(BLUE + 'Bye.' + RESET)
+                cEnd(connection, true, false);
                 return false
             default:
-                return true
+                return true;
         }
     }
 }
