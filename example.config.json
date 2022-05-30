@@ -1,0 +1,12 @@
+{
+   "data":{
+      "silent_debug":false,
+      "no_color":false
+   },
+   "database_connection":{
+      "host":"localhost",
+      "user":"tekno",
+      "password":"tekno",
+      "database":"mysql"
+   }
+}
