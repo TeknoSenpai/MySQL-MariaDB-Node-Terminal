@@ -1,6 +1,7 @@
 const {RED, BLUE, RESET} = require("../colors");
 
 function cEnd(connection, endPeacefully, endProcess) {
+    process.env.MYSQL_NODE_DEBUG = undefined;
     const end = () => connection.end((err) => console.log(err ? RED + 'Error! ' + err.sqlMessage + RESET : BLUE + 'Closing connection... Waiting for all queries to end...' + RESET))
     const destroy = () => connection.destroy().then(() => console.log(RED + 'Connection destroyed!' + RESET))
     switch(true) {

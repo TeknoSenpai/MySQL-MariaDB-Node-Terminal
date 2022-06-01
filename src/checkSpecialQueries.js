@@ -13,8 +13,8 @@ const {cEnd} = require('./fnc/end')
 
 module.exports = {
     checkSpecialQueries(query, connection) {
-        switch(query) {
-            case '\\q':
+        switch(true) {
+            case query === '\\q':
                 console.log(BLUE + 'Bye.' + RESET)
                 cEnd(connection, true, false);
                 return false;

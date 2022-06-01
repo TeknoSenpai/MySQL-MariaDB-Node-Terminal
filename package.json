@@ -26,7 +26,8 @@
   },
   "scripts": {
     "terminal": "node index.js",
-    "debug": "node index.js -debug true"
+    "debug": "node index.js -debug true",
+    "create-config": "node src/fnc/scripts/create-config.js"
   },
   "repository": {
     "type": "git",

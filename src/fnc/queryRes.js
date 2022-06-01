@@ -1,33 +1,40 @@
 const {RED, RESET, YELLOW, BLUE} = require("../colors");
 
-function queryRes(err, res) {
-    switch(true) {
-        case process.env.MYSQL_NODE_DEBUG === "true":
-            return console.log(err ? RED + err : RED + 'NO ERROR' + RESET)
-        case err:
-            return console.log(RED + 'Error: ' + err.sqlMessage + RESET);
-        case typeof res === "undefined" || "null":
-            return console.log(YELLOW + 'Database returned no data, probably due to a syntax error in the query, check your query syntax!' + RESET)
-        case (typeof res === "undefined" || "null") && (typeof err === "undefined" || "null"):
-            return console.log(RED + 'Unknown Error: Database did not return any data nor error!' + RESET)
-    }
-
-    switch(true) {
-        case process.env.MYSQL_NODE_DEBUG === "true":
-            console.log(res + RESET)
-        // noinspection FallThroughInSwitchStatementJS
-        case Array.isArray(res):
-            console.log(BLUE + 'Query OK.' + RESET)
-            console.table(res)
+async function queryRes(err, res) {
+    if(err) return console.log(RED + 'Error: ' + RED + (err ? err?.sqlMessage : 'N/A') + RESET);
+    switch(err) {
+        case true:
             break
-        case res instanceof Array:
-            console.log(BLUE + 'Query OK.' + RESET)
-            console.table(BLUE + res + BLUE)
-            break
+        case false:
         default:
-            console.log(BLUE + 'Query OK.' + RESET)
-            console.log(BLUE + 'Rows affected: ' + res.affectedRows ? res.affectedRows : 0 + '\n Response: ' + res.sqlMessage ? res.sqlMessage : 'N/A' + RESET)
-            break
+            switch(res) {
+                case false:
+                    return console.log(RED + 'Unknown Error: Database did not return any data!')
+                default:
+                    break
+            }
+
+            switch(true) {
+                case process.env.MYSQL_NODE_DEBUG === "true":
+                    if(Array.isArray(res) || res instanceof Array) {
+                        console.dir(res)
+                    } else {
+                        console.log(res)
+                    }
+                    console.log(err)
+                // noinspection FallThroughInSwitchStatementJS
+                case Array.isArray(res):
+                    console.log(BLUE + 'Query OK.' + RESET)
+                    console.table(res)
+                    break
+                case res instanceof Array:
+                    console.log(BLUE + 'Query OK.' + RESET)
+                    console.table(BLUE + res + BLUE)
+                    break
+                default:
+                    console.log(`${BLUE}Query OK.${RESET}\n${BLUE}Rows affected: ${res.affectedRows ? res.affectedRows : 'N/A'}${RESET}`)
+                    break
+            }
     }
 }
 

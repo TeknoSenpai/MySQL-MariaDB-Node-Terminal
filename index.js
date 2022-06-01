@@ -25,15 +25,6 @@ let {RED, YELLOW, BLUE, CYAN, RESET} = require('./src/colors.js')
 //----//
 const config = require('./config.json')
 
-switch (true) {
-    case config.data.no_color === true:
-        RED = ''
-        YELLOW = ''
-        BLUE = ''
-        CYAN = ''
-        break
-}
-
 //----//
 
 const connection = init();
@@ -52,6 +43,8 @@ function query() {
 
         if(q) {
             connection.query(q.trim(), (err, res) => {
+                if(!err) err = false;
+                if(!res) res = false;
                 queryRes(err, res);
                 query();
             })

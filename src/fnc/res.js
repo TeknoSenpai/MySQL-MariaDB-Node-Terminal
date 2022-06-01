@@ -1,4 +1,4 @@
-const {RED, RESET, YELLOW, BLUE} = require("../colors");
+const {RED, RESET, YELLOW, BLUE, BLINK} = require("../colors");
 
 async function response(err, res, con, exitProcess) {
     // noinspection FallThroughInSwitchStatementJS
@@ -17,7 +17,7 @@ async function response(err, res, con, exitProcess) {
             break
         default:
             console.log(BLUE + 'Query OK.' + RESET)
-            console.log(BLUE + 'Rows affected: ' + res.affectedRows ? res.affectedRows : 0 + '\n Response: ' + res.sqlMessage ? res.sqlMessage : 'N/A' + RESET)
+            console.log(BLUE + 'Rows affected: ' + (res.affectedRows ? res.affectedRows : 0) + '\n Response: ' + res.sqlMessage ? res.sqlMessage : 'N/A' + RESET)
             break
     }
     switch(true) {
