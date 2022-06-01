@@ -82,7 +82,8 @@ The config file is straightforward, here is a list of the meaning of all the opt
     *   Author: [TeknoSenpai](https://github.com/TeknoSenpai)  
         (Special thanks to the [Hiri Devs Org](https://hiri.dev))
 2.  How to contribute:
-    *   Fork the repository (or clone it `git clone (repo url)`
+    *   [Fork](https://github.com/TeknoSenpai/MySQL-MariaDB-Node-Terminal/fork) the repository 
+    *   Clone your fork locally (`git clone (repo url)`)
     *   Add your work (`git add .`)
     *   Create a new branch (`git checkout -b "your branch name (can be your username)"`)
     *   Commit (`git commit -m "Your very detailed description"`)
