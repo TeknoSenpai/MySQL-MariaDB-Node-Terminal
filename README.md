@@ -21,14 +21,6 @@ To install the terminal using git:
 
 _Beware that you'll need to install and configure git, a guide that explains how to do so can be found [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)_
 
-#### Using my WebServer (_Not yet available_)
-
-To install the package through my WebServer you can use any command line utility that lets you download files from URLs (for this example and for the sake of simplicity, I'm going to use `curl` for this example)
-1. [Install `curl`](https://www.cyberciti.biz/faq/download-a-file-with-curl-on-linux-unix-command-line/)
-2. Run the `curl https://tekno.is-a.dev/MySQL-MariaDB-NodeTerminal` (if you wish to select a destination folder, use `--output <destination>`)
-
-_This method doesn't require having a GitHub account unlike using git, but you'll need to update manually_
-
 ### How to use
 
 #### Terminal Mode
@@ -39,7 +31,14 @@ To run the terminal, you can use the `terminal` script, with the `npm run termin
 
 The terminal also supports a "single-query" usage, through CLI Arguments.  
 Simply run the `index.js` file with the `node index.js -q (query)`  
-**Example:** `node index.js -q SHOW VARIABLES LIKE 'port';`  
+**Example:** `node index.js -q SHOW VARIABLES LIKE 'port';` 
+
+**You might need to wrap the query in apexes (") depending on your console's settings, to avoid `ER_PARSE_ERROR` errors**
+
+#### SQL File Mode (_In development_)
+
+You can use SQL Script Files `.sql` to run a series of queries at a single time!.
+Run the `npm run sql <path to file (can be relative)>`
 
 #### Debug Mode
 

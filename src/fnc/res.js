@@ -1,3 +1,13 @@
+/*
+    -------------------------------------
+    |   NodeJS MySQL/MariaDB Terminal   |
+    |    Copyright TeknoSenpai 2022     |
+    -------------------------------------
+
+    GitHub: https://github.com/TeknoSenpai
+    Discord: TeknoSenpai#0957
+*/
+
 const {RED, RESET, YELLOW, BLUE, BLINK} = require("../colors");
 
 async function response(err, res, con, exitProcess) {

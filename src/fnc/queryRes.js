@@ -1,3 +1,13 @@
+/*
+    -------------------------------------
+    |   NodeJS MySQL/MariaDB Terminal   |
+    |    Copyright TeknoSenpai 2022     |
+    -------------------------------------
+
+    GitHub: https://github.com/TeknoSenpai
+    Discord: TeknoSenpai#0957
+*/
+
 const {RED, RESET, YELLOW, BLUE} = require("../colors");
 
 async function queryRes(err, res) {
